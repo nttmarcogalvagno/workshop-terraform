@@ -265,8 +265,8 @@ terraform destroy
 ## Best practices
 
 In a real word project, your infrastructure could be composed by many resources of many different types.
-Keeping all in your main.tf configuration file could be confusing: for this reason, Terraform allows to define resource in differents file.
+Keeping all in your main.tf configuration file could be confusing: for this reason, Terraform allows to define resources in different files.
 
-In addition, we could have to create different environments for our project, for example dev, test, qa. We would like to have the same infrastructure tuning some parameter for every specific env. Terraform allows us to reuse our configuration for differente env using variables.
+In addition, we could have to create different environments for the project (i.e. dev, test, qa). We would like to have the same infrastructure tuning some parameter for every specific env. Terraform allows us to reuse our configuration for different env using variables.
 
 Next lab will teach you how to use these feature in a **[more real scenario](02_more_real_scenario.md)** 
