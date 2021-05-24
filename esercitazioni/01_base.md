@@ -32,10 +32,10 @@ terraform -help
 
 ## GCP Provider configuration
 
-Terraform implements IaaC paradigm: your infrastructure is described in a configuration file that you can store in your repo.
-By default Terraform binary looks for your configuration in the current directory.  
+Terraform implements IaC paradigm: your infrastructure is described in a configuration file that you can store in your repo.
+By default Terraform binary looks for your configuration file in the current directory.  
 
-Create a 'main.tf', add the following code and save it. **Pay attention to replace credentials file path and project id with yours data.**
+Create a 'main.tf' file, add the following code and save it. **Pay attention to replace credentials file path and project id with your data.**
 ```
 ## List of provider needed
 terraform {
@@ -70,13 +70,13 @@ Provider will be downloaded and configured in a subdirectory of your workspace.
 
 Build your infrastructure running `terraform apply`. When asked, confirm with "yes".
 
-Verify resources has been created on GCP console or by typing the `terraform show`.
+Verify resources has been created on GCP console or by typing the `terraform show` command.
 
 Explore your workspace: Terraform keeps trace of the status of your infrastructure in a file 'terraform.tfstate'.
 
 ## Create a VM and attach to the network
 
-Add to the 'main.tf' the following content:
+Add to the 'main.tf' file the following content:
 
 ```
 ## Defining a VM resource
@@ -102,11 +102,11 @@ resource "google_compute_instance" "vm_instance" {
 
 Apply changes with `terraform apply`.  
 
-Verify resources has been created on GCP console or by typing the `terraform show`.
+Verify resources has been created on GCP console or by typing `terraform show`.
 
 ## Apply changes to your infrastructure
 
-When you make changes to your infrastructure, Terraform can act in two way:
+When you make changes to your infrastructure, Terraform can act in two ways:
 - if the change can be applied on the fly, Terraform will perform a simple update of the resource
 - if the change is desruptive, Terraform will delete the resource and will create a new one with the updated configuration.
 
@@ -181,19 +181,19 @@ To apply these changes issue `terraform apply "static_ip"`
 
 ## Explore how Terraform manages dependencies
 
-So far we created resource writing resource block in the configuration file, defining a type and a name for each one.
-Relationship between resource is achieved by dot notation or declaring an explicit relation
+So far we created resources writing resource block in the configuration file, defining a type and a name for each one.
+Relationship between resources is achieved by dot notation or declaring an explicit relation.
 
 Resource relationship implies also that resource are created on the cloud in a well defined order.
 
-When Terraform applies build the infrastructure, it process a dependency graph based on dot notation and explicit relations.
+When Terraform build the infrastructure, it creates a dependency graph based on dot notation and explicit relations.
 
 If you want to see the terraform graph representation of the infrastructure, execute the command: `terraform graph > graph.digraph`.  
 Now let's go to https://dreampuf.github.io/GraphvizOnline and paste the content of the *graph.digraph* file.
 
 ### Explicit dependency
 
-As you have seen, the dependecy between a VPC, a VM and an ExternalIP is defined in a implicit way using dot notation reference.
+As you have seen, the dependency between a VPC, a VM and an ExternalIP is defined in a implicit way using dot notation reference.
 Sometimes there are dependencies between resources that are not visible to Terraform: image an application that will run in the VM and expects to use a specific Cloud Storage bucket, but this dependency is configured inside the application code.
 
 Add the following resources to 'main.tf'.
@@ -264,9 +264,9 @@ terraform destroy
 ```
 ## Best practices
 
-In a real word project, your infrastructure could be composed by many resources of many different types.
-Keeping all in your main.tf configuration file could be confusing: for this reason, Terraform allows to define resources in different files.
+In a real world project, your infrastructure could be composed by many resources of many different types.
+Keeping all in your main.tf configuration file could be confusing: for this reason, Terraform allows to define resources in many files.
 
-In addition, we could have to create different environments for the project (i.e. dev, test, qa). We would like to have the same infrastructure tuning some parameter for every specific env. Terraform allows us to reuse our configuration for different env using variables.
+In addition, we could have to create different environments for the project (i.e. dev, test, qa). We would like to have the same infrastructure and tuning some parameters for every specific env. Terraform allows us to reuse our configuration for different enviroments using variables.
 
 Next lab will teach you how to use these feature in a **[more real scenario](02_more_real_scenario.md)** 
