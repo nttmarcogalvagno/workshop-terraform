@@ -17,7 +17,14 @@ Project is created, Dashboard is presented.
 
 ![gcp-new-prj-4.PNG](./_resources/efa1454a1764c62be4edc1aeb10c5ed8.png)
 
-Create a new service account and grant the **compute admin** role. Click the **Create Key** button to generate a JSON file with a key.
+Select the project you created in the previous step.
+
+- Under **Service account**, select **New service account**.
+- Give it any name you like.
+- For the **Role**, choose **Project -> Editor**.
+- Leave the **Key Type** as JSON.
+- Click **Create** to create the key and save the key file to your system.
+
 
 Download the generated JSON file and save it to the directory of your project.
 
