@@ -137,6 +137,7 @@ resource "google_compute_firewall" "allow-rdp" {
 ### Virtual Machines (Managed Instance Group)
 
 - **vm.tf**
+
 Create a **vm.tf** file with settings related to the spinning up of a vm instances with autoscaling 
 
 

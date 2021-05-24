@@ -9,4 +9,3 @@ gcp_auth_file = "<project-name>.json"
  # GCP Network
 public_subnet_cidr_1  = "10.10.1.0/24"
 
-
