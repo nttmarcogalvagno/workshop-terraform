@@ -17,6 +17,7 @@ terraform {
 provider "google" {
   project = data.terraform_remote_state.gke.outputs.project_id
   region  = data.terraform_remote_state.gke.outputs.region
+  credentials = file("../terraform-provision-gke-cluster/<project-id>.json")
 }
 
 

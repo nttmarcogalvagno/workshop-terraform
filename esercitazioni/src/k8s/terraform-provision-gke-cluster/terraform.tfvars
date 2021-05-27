@@ -1,2 +1,2 @@
-project_id = "terraform-gcp-labs-310013"
+project_id = "project-us-350-05"
 region     = "us-central1"

@@ -1,4 +1,5 @@
 provider "google" {
+  credentials = file("project-us-350-05-c0dfb6cabdcc.json")
   project = var.project_id
   region  = var.region
 }
